@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HeroFlix Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:60px">
+
+<h2>HeroFlix Premium</h2>
+
+<p>Amount: ₹39</p>
+
+<button onclick="pay()" style="padding:15px 30px;font-size:18px">
+💳 Pay Now
+</button>
+
+<p style="margin-top:30px">
+UPI ID:<br>
+<b>karthik.slice@ybl</b>
+</p>
+
+<script>
+function pay() {
+    window.location.href =
+    "upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=39&cu=INR";
+
+    setTimeout(function () {
+        alert("If the UPI app didn't open, pay using the UPI ID shown on this page.");
+    }, 1500);
+}
+</script>
+
+</body>
+</html>
