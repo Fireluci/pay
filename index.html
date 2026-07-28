@@ -16,7 +16,6 @@
             --purple-glow: rgba(139, 92, 246, 0.25);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --card-bg: rgba(18, 10, 32, 0.65);
             --card-border: rgba(139, 92, 246, 0.25);
             --success-color: #22c55e;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -124,7 +123,7 @@
             gap: 40px;
         }
 
-        /* Hero Section - Compact */
+        /* Hero Section */
         .hero-section {
             text-align: center;
             display: flex;
@@ -234,70 +233,95 @@
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 20px;
             width: 100%;
         }
 
+        /* Ticket Card Styles with Right-Edge Cut-Out Notch */
         .pricing-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 24px 18px;
+            position: relative;
+            padding: 24px 22px;
             display: flex;
             flex-direction: column;
-            position: relative;
+            border-radius: 20px;
             transition: var(--transition);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            
+            /* Radial notch cut-out on the right side */
+            mask-image: radial-gradient(circle 14px at 100% 120px, transparent 14px, black 15px);
+            -webkit-mask-image: radial-gradient(circle 14px at 100% 120px, transparent 14px, black 15px);
+        }
+
+        /* Card Colors mapping to your reference image */
+        .card-purple {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-red {
+            background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-yellow {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #1e1b4b;
+        }
+
+        .card-green {
+            background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .pricing-card:hover {
             transform: translateY(-4px);
-            border-color: var(--purple-accent);
-            box-shadow: 0 15px 35px var(--purple-glow);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
-        .pricing-card.popular {
-            border: 2px solid var(--purple-accent);
-            background: rgba(24, 12, 45, 0.85);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--purple-accent), var(--purple-deep));
-            color: white;
-            font-size: 0.68rem;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px var(--purple-glow);
-            white-space: nowrap;
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
         }
 
         .plan-duration {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-bottom: 4px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .card-yellow .plan-duration {
+            color: #1e1b4b;
+        }
+
+        .plan-icon-badge {
+            background: rgba(255, 255, 255, 0.2);
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            backdrop-filter: blur(4px);
         }
 
         .plan-price {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 800;
             color: white;
             margin-bottom: 16px;
             letter-spacing: -1px;
         }
+        .card-yellow .plan-price {
+            color: #1e1b4b;
+        }
 
         .plan-features {
             list-style: none;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -306,48 +330,50 @@
 
         .plan-features li {
             font-size: 0.85rem;
-            color: var(--text-main);
+            color: rgba(255, 255, 255, 0.9);
             display: flex;
             align-items: center;
             gap: 8px;
-            font-weight: 500;
+            font-weight: 600;
+        }
+        .card-yellow .plan-features li {
+            color: #262456;
         }
 
         .plan-features li span {
-            color: var(--purple-accent);
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .btn-pay {
             width: 100%;
-            background: linear-gradient(135deg, var(--purple-accent), var(--purple-deep));
+            background: #000000;
             color: white;
             border: none;
             padding: 12px;
             border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 700;
+            font-size: 0.9rem;
+            font-weight: 800;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 4px 12px var(--purple-glow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             text-align: center;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 6px;
+            letter-spacing: 0.5px;
         }
 
         .btn-pay:hover {
-            opacity: 0.95;
+            background: #1f1f1f;
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px var(--purple-glow);
         }
 
         /* Alternative Payment Section */
         .alt-payment-section {
             width: 100%;
-            background: var(--card-bg);
+            background: rgba(18, 10, 32, 0.65);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
             border-radius: 20px;
@@ -437,7 +463,7 @@
             border-color: var(--success-color);
         }
 
-        /* Payment Complete Section / I Have Paid Button */
+        /* Payment Complete Section */
         .payment-complete-section {
             width: 100%;
             display: flex;
@@ -513,7 +539,7 @@
             max-width: 900px;
         }
 
-        /* Responsive adjustments for extremely small screens */
+        /* Responsive adjustments */
         @media (max-width: 480px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
@@ -556,14 +582,17 @@
             </div>
         </section>
 
-        <!-- Pricing Section (2x2 Structure) -->
+        <!-- Pricing Section (2x2 Structure with Ticket Edge Notch) -->
         <section class="pricing-section">
             <h2 class="section-heading">Choose Your Plan</h2>
             <div class="pricing-grid">
                 
-                <!-- Plan 1 -->
-                <div class="pricing-card">
-                    <div class="plan-duration">1 Month</div>
+                <!-- Plan 1 (Purple) -->
+                <div class="pricing-card card-purple">
+                    <div class="card-header-row">
+                        <div class="plan-duration">1 Month</div>
+                        <div class="plan-icon-badge">★</div>
+                    </div>
                     <div class="plan-price">₹39</div>
                     <ul class="plan-features">
                         <li><span>✓</span> Unlimited Movies</li>
@@ -571,12 +600,15 @@
                         <li><span>✓</span> No Ads</li>
                         <li><span>✓</span> Direct Files</li>
                     </ul>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=39&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">Pay Now →</a>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=39&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
-                <!-- Plan 2 -->
-                <div class="pricing-card">
-                    <div class="plan-duration">2 Months</div>
+                <!-- Plan 2 (Red) -->
+                <div class="pricing-card card-red">
+                    <div class="card-header-row">
+                        <div class="plan-duration">2 Months</div>
+                        <div class="plan-icon-badge">📄</div>
+                    </div>
                     <div class="plan-price">₹78</div>
                     <ul class="plan-features">
                         <li><span>✓</span> Unlimited Movies</li>
@@ -584,13 +616,15 @@
                         <li><span>✓</span> No Ads</li>
                         <li><span>✓</span> Direct Files</li>
                     </ul>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=78&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">Pay Now →</a>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=78&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
-                <!-- Plan 3 (Popular) -->
-                <div class="pricing-card popular">
-                    <span class="popular-badge">⭐ Most Popular</span>
-                    <div class="plan-duration">6 Months</div>
+                <!-- Plan 3 (Yellow) -->
+                <div class="pricing-card card-yellow">
+                    <div class="card-header-row">
+                        <div class="plan-duration">6 Months</div>
+                        <div class="plan-icon-badge">🎓</div>
+                    </div>
                     <div class="plan-price">₹234</div>
                     <ul class="plan-features">
                         <li><span>✓</span> Unlimited Movies</li>
@@ -598,12 +632,15 @@
                         <li><span>✓</span> No Ads</li>
                         <li><span>✓</span> Direct Files</li>
                     </ul>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=234&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">Pay Now →</a>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=234&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
-                <!-- Plan 4 -->
-                <div class="pricing-card">
-                    <div class="plan-duration">1 Year (12 Months)</div>
+                <!-- Plan 4 (Green) -->
+                <div class="pricing-card card-green">
+                    <div class="card-header-row">
+                        <div class="plan-duration">1 Year</div>
+                        <div class="plan-icon-badge">📖</div>
+                    </div>
                     <div class="plan-price">₹468</div>
                     <ul class="plan-features">
                         <li><span>✓</span> Unlimited Movies</li>
@@ -611,7 +648,7 @@
                         <li><span>✓</span> No Ads</li>
                         <li><span>✓</span> Direct Files</li>
                     </ul>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=468&cu=INR&tn=HeroFlix%201%20Year%20Premium" class="btn-pay">Pay Now →</a>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=468&cu=INR&tn=HeroFlix%201%20Year%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
             </div>
@@ -623,7 +660,7 @@
             <p class="alt-payment-desc">If your UPI app doesn't open, pay using the QR code below.</p>
             
             <div class="qr-wrapper">
-                <img src="UPI QR - Mr DUBASI  KARTHIK.jpg" alt="UPI QR Code" loading="lazy">
+                <img src="image_24c962.png" alt="UPI QR Code" loading="lazy">
             </div>
 
             <div class="upi-box-wrapper">
