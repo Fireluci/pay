@@ -214,7 +214,7 @@
             }
         }
 
-        /* Pricing Section - 2x2 Grid Structure */
+        /* Pricing Section - Enforced 2x2 Grid Structure Across All Screens */
         .pricing-section {
             width: 100%;
             display: flex;
@@ -233,24 +233,24 @@
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 12px;
             width: 100%;
         }
 
         /* Ticket Card Styles with Larger Right-Edge Cut-Out Notch */
         .pricing-card {
             position: relative;
-            padding: 28px 24px;
+            padding: 20px 14px;
             display: flex;
             flex-direction: column;
-            border-radius: 20px;
+            border-radius: 16px;
             transition: var(--transition);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             
             /* Larger radial notch cut-out on the right side */
-            mask-image: radial-gradient(circle 22px at 100% 50%, transparent 22px, black 23px);
-            -webkit-mask-image: radial-gradient(circle 22px at 100% 50%, transparent 22px, black 23px);
+            mask-image: radial-gradient(circle 18px at 100% 50%, transparent 18px, black 19px);
+            -webkit-mask-image: radial-gradient(circle 18px at 100% 50%, transparent 18px, black 19px);
         }
 
         /* Card Colors mapping to your reference image */
@@ -281,20 +281,20 @@
         }
 
         .plan-duration {
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             font-weight: 800;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
         .card-yellow .plan-duration {
             color: #1e1b4b;
         }
 
         .plan-price {
-            font-size: 2.8rem;
+            font-size: 2rem;
             font-weight: 800;
             color: white;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             letter-spacing: -1px;
         }
         .card-yellow .plan-price {
@@ -306,9 +306,9 @@
             background: #000000;
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 0.9rem;
+            padding: 10px 8px;
+            border-radius: 10px;
+            font-size: 0.82rem;
             font-weight: 800;
             cursor: pointer;
             transition: var(--transition);
@@ -318,8 +318,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            letter-spacing: 0.5px;
+            gap: 4px;
+            letter-spacing: 0.3px;
             margin-top: auto;
         }
 
@@ -498,17 +498,17 @@
             max-width: 900px;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 480px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Responsive adjustments for extremely tight mobile views */
+        @media (max-width: 380px) {
             .hero-title {
                 font-size: 2.5rem;
             }
             .container {
                 gap: 30px;
-                padding: 20px 12px 40px;
+                padding: 20px 10px 40px;
+            }
+            .plan-price {
+                font-size: 1.7rem;
             }
         }
     </style>
@@ -541,7 +541,7 @@
             </div>
         </section>
 
-        <!-- Pricing Section (2x2 Structure with Larger Ticket Notches) -->
+        <!-- Pricing Section (Forced 2x2 Grid Layout) -->
         <section class="pricing-section">
             <h2 class="section-heading">Choose Your Plan</h2>
             <div class="pricing-grid">
@@ -583,7 +583,7 @@
             <p class="alt-payment-desc">If your UPI app doesn't open, pay using the QR code below.</p>
             
             <div class="qr-wrapper">
-                <img src="https://i.ibb.co/N2stjBF7/image.png" alt="UPI QR Code" loading="lazy">
+                <a href="https://ibb.co/rRN3Ws90" target="_blank"><img src="https://i.ibb.co/dwxthgZM/87737648917.png" alt="87737648917" border="0" loading="lazy"></a>
             </div>
 
             <div class="upi-box-wrapper">
