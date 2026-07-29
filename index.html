@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --purple-deep: #4c1d95;
             --purple-accent: #8b5cf6;
             --purple-glow: rgba(139, 92, 246, 0.25);
             --text-main: #f8fafc;
@@ -29,7 +28,7 @@
         }
 
         body {
-            /* Custom Wave Background Image with moving effect capability */
+            /* Exact image used as the full fixed background */
             background-image: url('b2f0cdf42f83c7ee2bd0d4669c9dad05.jpg');
             background-size: cover;
             background-position: center;
@@ -44,7 +43,7 @@
             align-items: center;
         }
 
-        /* Overlay to keep text readable over the background image */
+        /* Dark overlay to ensure text is fully readable on top of your background image */
         body::before {
             content: '';
             position: fixed;
@@ -52,7 +51,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(3, 0, 8, 0.45);
+            background: rgba(15, 5, 25, 0.65);
             z-index: -3;
             pointer-events: none;
         }
@@ -75,8 +74,8 @@
             height: 4px;
             background: #c084fc;
             border-radius: 50%;
-            opacity: 0.4;
-            box-shadow: 0 0 8px #8b5cf6;
+            opacity: 0.5;
+            box-shadow: 0 0 10px #8b5cf6;
             animation: riseParticle linear infinite;
         }
 
@@ -189,7 +188,7 @@
             }
         }
 
-        /* Pricing Section - Enforced 2x2 Grid Structure Across All Screens */
+        /* Pricing Section - 2x2 Grid Structure */
         .pricing-section {
             width: 100%;
             display: flex;
@@ -212,7 +211,7 @@
             width: 100%;
         }
 
-        /* Ticket Card Styles with Larger Right-Edge Cut-Out Notch */
+        /* Ticket Card Styles with Right-Edge Cut-Out Notch */
         .pricing-card {
             position: relative;
             padding: 20px 14px;
@@ -223,12 +222,12 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             
-            /* Larger radial notch cut-out on the right side */
+            /* Radial notch cut-out on the right side */
             mask-image: radial-gradient(circle 18px at 100% 50%, transparent 18px, black 19px);
             -webkit-mask-image: radial-gradient(circle 18px at 100% 50%, transparent 18px, black 19px);
         }
 
-        /* Card Colors mapping to your reference image */
+        /* Card Colors */
         .card-purple {
             background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -306,7 +305,7 @@
         /* Alternative Payment Section */
         .alt-payment-section {
             width: 100%;
-            background: rgba(18, 10, 32, 0.75);
+            background: rgba(25, 10, 40, 0.75);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
             border-radius: 20px;
@@ -493,7 +492,7 @@
 </head>
 <body>
 
-    <!-- Floating Particles Container (Moving Effect) -->
+    <!-- Floating Particles Container (Bubble Moving Effect) -->
     <div class="particles" id="particlesContainer"></div>
 
     <!-- Main Container -->
@@ -623,7 +622,7 @@
             });
         }
 
-        // Generate tiny floating background particles dynamically (moving effect)
+        // Generate tiny floating background particles dynamically (bubble moving effect)
         document.addEventListener("DOMContentLoaded", () => {
             const particlesContainer = document.getElementById('particlesContainer');
             const particleCount = 20;
