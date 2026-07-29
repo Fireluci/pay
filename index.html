@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #030008;
             --purple-deep: #4c1d95;
             --purple-accent: #8b5cf6;
             --purple-glow: rgba(139, 92, 246, 0.25);
@@ -30,7 +29,12 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            /* Custom Wave Background Image with moving effect capability */
+            background-image: url('b2f0cdf42f83c7ee2bd0d4669c9dad05.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: var(--text-main);
             min-height: 100vh;
             overflow-x: hidden;
@@ -40,50 +44,20 @@
             align-items: center;
         }
 
-        /* Animated Background Blobs */
-        .bg-blobs {
+        /* Overlay to keep text readable over the background image */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            z-index: -2;
+            background: rgba(3, 0, 8, 0.45);
+            z-index: -3;
             pointer-events: none;
         }
 
-        .blob {
-            position: absolute;
-            filter: blur(120px);
-            opacity: 0.35;
-            animation: floatBlob 20s infinite alternate ease-in-out;
-        }
-
-        .blob-1 {
-            top: -10%;
-            left: -10%;
-            width: 50vw;
-            height: 50vw;
-            background: #6d28d9;
-            border-radius: 50%;
-        }
-
-        .blob-2 {
-            bottom: -10%;
-            right: -10%;
-            width: 60vw;
-            height: 60vw;
-            background: #3b0764;
-            border-radius: 50%;
-            animation-delay: -7s;
-        }
-
-        @keyframes floatBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, 50px) scale(1.15); }
-        }
-
-        /* Floating Particles */
+        /* Floating Particles Effect */
         .particles {
             position: fixed;
             top: 0;
@@ -97,18 +71,19 @@
 
         .particle {
             position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--purple-accent);
+            width: 4px;
+            height: 4px;
+            background: #c084fc;
             border-radius: 50%;
-            opacity: 0.3;
+            opacity: 0.4;
+            box-shadow: 0 0 8px #8b5cf6;
             animation: riseParticle linear infinite;
         }
 
         @keyframes riseParticle {
             0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            50% { opacity: 0.6; }
-            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
 
         /* Layout Container */
@@ -331,7 +306,7 @@
         /* Alternative Payment Section */
         .alt-payment-section {
             width: 100%;
-            background: rgba(18, 10, 32, 0.65);
+            background: rgba(18, 10, 32, 0.75);
             backdrop-filter: blur(16px);
             border: 1px solid var(--card-border);
             border-radius: 20px;
@@ -350,6 +325,7 @@
             line-height: 1.4;
         }
 
+        /* Big QR Wrapper */
         .qr-wrapper {
             background: white;
             padding: 16px;
@@ -357,7 +333,7 @@
             display: inline-block;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             width: 100%;
-            max-width: 340px;
+            max-width: 320px;
         }
 
         .qr-wrapper img {
@@ -517,13 +493,7 @@
 </head>
 <body>
 
-    <!-- Background Animated Blobs -->
-    <div class="bg-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-    </div>
-
-    <!-- Floating Particles Container -->
+    <!-- Floating Particles Container (Moving Effect) -->
     <div class="particles" id="particlesContainer"></div>
 
     <!-- Main Container -->
@@ -531,8 +501,8 @@
         
         <!-- Hero Section -->
         <section class="hero-section">
-            <h1 class="hero-title">HEROFLiX</h1>
-            <span class="hero-subtitle">PREMiUM MEMBERSHIP</span>
+            <h1 class="hero-title">HeroFlix</h1>
+            <span class="hero-subtitle">PREMIUM MEMBERSHIP</span>
             <p class="hero-desc">Unlimited Movies, Series & Anime</p>
             <div class="feature-list">
                 <span class="feature-item">New Releases Every Day</span>
@@ -551,29 +521,29 @@
                 <!-- Plan 1 (Purple) -->
                 <div class="pricing-card card-purple">
                     <div class="plan-duration">1 Month</div>
-                    <div class="plan-price">₹40</div>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=40&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">PAY NOW →</a>
+                    <div class="plan-price">₹39</div>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=39&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <!-- Plan 2 (Red) -->
                 <div class="pricing-card card-red">
                     <div class="plan-duration">2 Months</div>
-                    <div class="plan-price">₹80</div>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=80&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">PAY NOW →</a>
+                    <div class="plan-price">₹78</div>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=78&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <!-- Plan 3 (Yellow) -->
                 <div class="pricing-card card-yellow">
                     <div class="plan-duration">6 Months</div>
-                    <div class="plan-price">₹240</div>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=240&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">PAY NOW →</a>
+                    <div class="plan-price">₹234</div>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=234&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <!-- Plan 4 (Green) -->
                 <div class="pricing-card card-green">
                     <div class="plan-duration">1 Year</div>
-                    <div class="plan-price">₹480</div>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=480&cu=INR&tn=HeroFlix%201%20Year%20Premium" class="btn-pay">PAY NOW →</a>
+                    <div class="plan-price">₹468</div>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=468&cu=INR&tn=HeroFlix%201%20Year%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
             </div>
@@ -653,7 +623,7 @@
             });
         }
 
-        // Generate tiny floating background particles dynamically
+        // Generate tiny floating background particles dynamically (moving effect)
         document.addEventListener("DOMContentLoaded", () => {
             const particlesContainer = document.getElementById('particlesContainer');
             const particleCount = 20;
@@ -665,7 +635,7 @@
                 const randomX = Math.random() * 100;
                 const randomDuration = 10 + Math.random() * 15;
                 const randomDelay = Math.random() * 10;
-                const randomSize = 2 + Math.random() * 2;
+                const randomSize = 2 + Math.random() * 3;
 
                 particle.style.left = `${randomX}%`;
                 particle.style.width = `${randomSize}px`;
