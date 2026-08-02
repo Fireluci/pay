@@ -30,7 +30,11 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-image: url('b2f0cdf42f83c7ee2bd0d4669c9dad05.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: var(--text-main);
             min-height: 100vh;
             overflow-x: hidden;
@@ -40,47 +44,16 @@
             align-items: center;
         }
 
-        /* Animated Background Blobs */
-        .bg-blobs {
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            z-index: -2;
+            background: rgba(15, 5, 25, 0.65);
+            z-index: -3;
             pointer-events: none;
-        }
-
-        .blob {
-            position: absolute;
-            filter: blur(120px);
-            opacity: 0.35;
-            animation: floatBlob 20s infinite alternate ease-in-out;
-        }
-
-        .blob-1 {
-            top: -10%;
-            left: -10%;
-            width: 50vw;
-            height: 50vw;
-            background: #6d28d9;
-            border-radius: 50%;
-        }
-
-        .blob-2 {
-            bottom: -10%;
-            right: -10%;
-            width: 60vw;
-            height: 60vw;
-            background: #3b0764;
-            border-radius: 50%;
-            animation-delay: -7s;
-        }
-
-        @keyframes floatBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, 50px) scale(1.15); }
         }
 
         /* Floating Particles */
@@ -120,98 +93,108 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px;
+            gap: 30px;
         }
 
-        /* Hero Section */
-        .hero-section {
-            text-align: center;
+        /* Replica Date & Time Widget */
+        .widget-clock-date {
+            display: flex;
+            width: 320px;
+            height: 105px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            user-select: none;
+        }
+
+        .widget-left {
+            width: 38%;
+            background: #2b313a;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            max-width: 700px;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            background: linear-gradient(135deg, #ffffff 30%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .hero-subtitle {
-            background: linear-gradient(135deg, var(--purple-accent), #c084fc);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 5px 14px;
-            border-radius: 30px;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            box-shadow: 0 0 20px var(--purple-glow);
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
-        }
-
-        .hero-desc {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-main);
-            letter-spacing: -0.3px;
-            opacity: 0;
-            transform: translateY(15px);
-            animation: fadeSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-        }
-
-        .feature-list {
-            display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 12px;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .widget-date-num {
+            font-size: 1.9rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .widget-date-month {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #a0aec0;
+            margin-top: 4px;
+        }
+
+        .widget-arrow-left, .widget-arrow-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: bold;
+        }
+
+        .widget-arrow-left { left: 8px; }
+        .widget-arrow-right { right: 8px; }
+
+        .widget-right {
+            width: 62%;
+            background: #ffffff;
+            color: #2b313a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 10px;
+        }
+
+        .widget-time-display {
+            display: flex;
+            align-items: baseline;
+            font-weight: 800;
+        }
+
+        .widget-hours-mins {
+            font-size: 1.85rem;
+            letter-spacing: -1px;
+            color: #1a202c;
+            line-height: 1;
+        }
+
+        .widget-ampm {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #4a5568;
+            margin-left: 3px;
+            text-transform: lowercase;
+            align-self: flex-start;
             margin-top: 2px;
         }
 
-        .feature-item {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: fadeSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        /* Hero Image Banner Section */
+        .hero-banner-section {
+            width: 100%;
+            max-width: 750px;
+            display: flex;
+            justify-content: center;
         }
 
-        .feature-item:nth-child(1) { animation-delay: 0.4s; }
-        .feature-item:nth-child(2) { animation-delay: 0.5s; }
-        .feature-item:nth-child(3) { animation-delay: 0.6s; }
-        .feature-item:nth-child(4) { animation-delay: 0.7s; }
-        .feature-item:nth-child(5) { animation-delay: 0.8s; }
-
-        .feature-item::before {
-            content: '•';
-            color: var(--purple-accent);
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .feature-item:first-child::before {
-            display: none;
-        }
-
-        @keyframes fadeSlideIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-banner-img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
         }
 
         /* Pricing Section - Enforced 2x2 Grid Structure Across All Screens */
@@ -248,12 +231,10 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             overflow: hidden;
             
-            /* Larger radial notch cut-out on the right side */
             mask-image: radial-gradient(circle 18px at 100% 50%, transparent 18px, black 19px);
             -webkit-mask-image: radial-gradient(circle 18px at 100% 50%, transparent 18px, black 19px);
         }
 
-        /* Card Colors mapping to your reference image */
         .card-purple {
             background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -424,7 +405,7 @@
             border-color: var(--success-color);
         }
 
-        /* Payment Complete Section */
+        /* Payment Complete Section with Exact Pill Shape Style */
         .payment-complete-section {
             width: 100%;
             display: flex;
@@ -433,60 +414,90 @@
         }
 
         .btn-paid {
-            width: 100%;
-            background: var(--success-color);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 16px;
-            font-size: 1.05rem;
-            font-weight: 800;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 5px 20px rgba(34, 197, 94, 0.3);
-            text-align: center;
-            text-decoration: none;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            background-color: #2b313a;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            padding: 14px 36px;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .btn-paid:hover {
-            opacity: 0.95;
+            background-color: #38414e;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.45);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
         }
 
-        /* Support Section */
+        /* Contact Us Banner Button Section */
         .support-section {
-            text-align: center;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
         }
 
-        .btn-support {
+        .btn-contact-banner {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 12px 24px;
+            background: #2b313a;
+            color: #ffcc00;
             border-radius: 14px;
-            font-weight: 700;
-            font-size: 0.92rem;
             text-decoration: none;
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            overflow: hidden;
             transition: var(--transition);
+            border: 1px solid rgba(255, 204, 0, 0.2);
         }
 
-        .btn-support:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--purple-accent);
+        .btn-contact-banner:hover {
             transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
         }
+
+        .contact-icon-box {
+            background: #ffcc00;
+            color: #1a1a1a;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+            margin-right: -10px;
+        }
+
+        .contact-text-box {
+            padding: 14px 28px 14px 20px;
+            color: #ffcc00;
+            text-transform: uppercase;
+        }
+
+        /* Fireflies + Dust Ambient Effects */
+        .ambient-effects { position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
+        .firefly { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #ffe96a;
+            box-shadow: 0 0 8px #ffe96a, 0 0 18px #ffe96a, 0 0 30px rgba(255,233,106,.6);
+            animation: fireflyMove linear infinite alternate, fireflyGlow ease-in-out infinite; }
+        @keyframes fireflyGlow { 0%, 100% { opacity: .15; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.3); } }
+        @keyframes fireflyMove { from { transform: translate(0, 0); } to { transform: translate(60px, -80px); } }
+        .dust-particle { position: absolute; width: 2px; height: 2px; border-radius: 50%;
+            background: rgba(255,255,255,.5); filter: blur(.5px); animation: dustFloat linear infinite; }
+        @keyframes dustFloat {
+            from { transform: translateY(110vh) translateX(0); opacity: 0; }
+            20% { opacity: .4; } 80% { opacity: .4; }
+            to { transform: translateY(-10vh) translateX(30px); opacity: 0; } }
 
         /* Footer */
         footer {
@@ -500,35 +511,19 @@
             max-width: 900px;
         }
 
-        /* Responsive adjustments for extremely tight mobile views */
         @media (max-width: 380px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
             .container {
-                gap: 30px;
+                gap: 25px;
                 padding: 20px 10px 40px;
             }
             .plan-price {
                 font-size: 1.7rem;
             }
+            .widget-clock-date {
+                width: 290px;
+            }
         }
-    
-/* Fireflies + Dust */
-.ambient-effects{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
-.firefly{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffe96a;
-box-shadow:0 0 8px #ffe96a,0 0 18px #ffe96a,0 0 30px rgba(255,233,106,.6);
-animation:fireflyMove linear infinite alternate,fireflyGlow ease-in-out infinite}
-@keyframes fireflyGlow{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:1;transform:scale(1.3)}}
-@keyframes fireflyMove{from{transform:translate(0,0)}to{transform:translate(60px,-80px)}}
-.dust-particle{position:absolute;width:2px;height:2px;border-radius:50%;
-background:rgba(255,255,255,.5);filter:blur(.5px);animation:dustFloat linear infinite}
-@keyframes dustFloat{
-from{transform:translateY(110vh) translateX(0);opacity:0}
-20%{opacity:.4}80%{opacity:.4}
-to{transform:translateY(-10vh) translateX(30px);opacity:0}}
-
-</style>
+    </style>
 </head>
 <body>
 
@@ -540,52 +535,62 @@ to{transform:translateY(-10vh) translateX(30px);opacity:0}}
 
     <!-- Floating Particles Container -->
     <div class="particles" id="particlesContainer"></div>
-    <div class="ambient-effects"><div class="fireflies" id="fireflies"></div><div class="dust" id="dust"></div></div>
+    <div class="ambient-effects">
+        <div class="fireflies" id="fireflies"></div>
+        <div class="dust" id="dust"></div>
+    </div>
 
     <!-- Main Container -->
     <div class="container">
         
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h1 class="hero-title">HEROFLiX</h1>
-            <span class="hero-subtitle">PREMiUM MEMBERSHIP</span>
-            <p class="hero-desc">Unlimited Movies, Series & Anime</p>
-            <div class="feature-list">
-                <span class="feature-item">New Releases Every Day</span>
-                <span class="feature-item">Daily Updates</span>
-                <span class="feature-item">No Ads</span>
-                <span class="feature-item">Direct Files</span>
-                <span class="feature-item">24×7 Support</span>
+        <!-- Replica Date & Time Widget -->
+        <div class="widget-clock-date">
+            <div class="widget-left">
+                <span class="widget-arrow-left">‹</span>
+                <div class="widget-date-num" id="widgetDayNum">--</div>
+                <div class="widget-date-month" id="widgetMonthStr">---</div>
+                <span class="widget-arrow-right">›</span>
             </div>
+            <div class="widget-right">
+                <div class="widget-time-display">
+                    <span class="widget-hours-mins" id="widgetTimeVal">--:--</span>
+                    <span class="widget-ampm" id="widgetAmPmVal">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Image Banner Section -->
+        <section class="hero-banner-section">
+            <img src="https://i.ibb.co/.../your-banner-image.png" alt="HeroFlix Premium" class="hero-banner-img" loading="lazy">
         </section>
 
-        <!-- Pricing Section (Forced 2x2 Grid Layout) -->
+        <!-- Pricing Section (Forced 2x2 Grid Layout with ₹40, ₹80, ₹240, ₹480 plans) -->
         <section class="pricing-section">
             <h2 class="section-heading">Choose Your Plan</h2>
             <div class="pricing-grid">
                 
-                <!-- Plan 1 (Purple) -->
+                <!-- Plan 1 (Purple) - ₹40 -->
                 <div class="pricing-card card-purple">
                     <div class="plan-duration">1 Month</div>
                     <div class="plan-price">₹40</div>
                     <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=40&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
-                <!-- Plan 2 (Red) -->
+                <!-- Plan 2 (Red) - ₹80 -->
                 <div class="pricing-card card-red">
                     <div class="plan-duration">2 Months</div>
                     <div class="plan-price">₹80</div>
                     <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=80&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
-                <!-- Plan 3 (Yellow) -->
+                <!-- Plan 3 (Yellow) - ₹240 -->
                 <div class="pricing-card card-yellow">
                     <div class="plan-duration">6 Months</div>
                     <div class="plan-price">₹240</div>
                     <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=240&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
-                <!-- Plan 4 (Green) -->
+                <!-- Plan 4 (Green) - ₹480 -->
                 <div class="pricing-card card-green">
                     <div class="plan-duration">1 Year</div>
                     <div class="plan-price">₹480</div>
@@ -613,18 +618,22 @@ to{transform:translateY(-10vh) translateX(30px);opacity:0}}
             </div>
         </section>
 
-        <!-- Payment Complete Section -->
+        <!-- Payment Complete Section with Exact Pill Shape -->
         <section class="payment-complete-section">
             <a href="https://t.me/HeroFlix23Bot?start=premium" class="btn-paid">
-                ✓ I Have Paid
+                I PAID
             </a>
         </section>
 
-        <!-- Support Section -->
+        <!-- Support Section with Contact Us Banner Style -->
         <section class="support-section">
-            <h2 class="section-heading" style="font-size: 1.25rem;">Need Help?</h2>
-            <a href="https://t.me/HeroFeedbot" target="_blank" class="btn-support">
-                Telegram Support →
+            <a href="https://t.me/HeroFeedbot" target="_blank" class="btn-contact-banner">
+                <div class="contact-icon-box">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </div>
+                <div class="contact-text-box">
+                    Contact Us
+                </div>
             </a>
         </section>
 
@@ -669,8 +678,34 @@ to{transform:translateY(-10vh) translateX(30px);opacity:0}}
             });
         }
 
+        // Live updating Replica Widget Function
+        function updateReplicaWidget() {
+            const now = new Date();
+            
+            const dayNum = now.getDate();
+            document.getElementById('widgetDayNum').innerText = dayNum;
+
+            const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+            document.getElementById('widgetMonthStr').innerText = months[now.getMonth()];
+
+            let hours = now.getHours();
+            const minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'pm' : 'am';
+            
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            const minutesFormatted = minutes < 10 ? '0' + minutes : minutes;
+
+            document.getElementById('widgetTimeVal').innerText = hours + ':' + minutesFormatted;
+            document.getElementById('widgetAmPmVal').innerText = ampm;
+        }
+
+        setInterval(updateReplicaWidget, 1000);
+
         // Generate tiny floating background particles dynamically
         document.addEventListener("DOMContentLoaded", () => {
+            updateReplicaWidget();
+
             const particlesContainer = document.getElementById('particlesContainer');
             const particleCount = 20;
 
@@ -692,29 +727,29 @@ to{transform:translateY(-10vh) translateX(30px);opacity:0}}
                 particlesContainer.appendChild(particle);
             }
 
-// Fireflies
-const fireflies=document.getElementById("fireflies");
-for(let i=0;i<18;i++){
- const f=document.createElement("div");
- f.className="firefly";
- f.style.left=Math.random()*100+"%";
- f.style.top=Math.random()*100+"%";
- f.style.animationDuration=(8+Math.random()*10)+"s,"+(2+Math.random()*2)+"s";
- f.style.animationDelay=(-Math.random()*10)+"s,"+(-Math.random()*2)+"s";
- fireflies.appendChild(f);
-}
-// Dust
-const dust=document.getElementById("dust");
-for(let i=0;i<90;i++){
- const d=document.createElement("div");
- d.className="dust-particle";
- d.style.left=Math.random()*100+"%";
- d.style.animationDuration=(18+Math.random()*18)+"s";
- d.style.animationDelay=(-Math.random()*30)+"s";
- d.style.opacity=Math.random()*0.5;
- dust.appendChild(d);
-}
+            // Fireflies
+            const fireflies = document.getElementById("fireflies");
+            for (let i = 0; i < 18; i++) {
+                const f = document.createElement("div");
+                f.className = "firefly";
+                f.style.left = Math.random() * 100 + "%";
+                f.style.top = Math.random() * 100 + "%";
+                f.style.animationDuration = (8 + Math.random() * 10) + "s," + (2 + Math.random() * 2) + "s";
+                f.style.animationDelay = (-Math.random() * 10) + "s," + (-Math.random() * 2) + "s";
+                fireflies.appendChild(f);
+            }
 
+            // Dust
+            const dust = document.getElementById("dust");
+            for (let i = 0; i < 90; i++) {
+                const d = document.createElement("div");
+                d.className = "dust-particle";
+                d.style.left = Math.random() * 100 + "%";
+                d.style.animationDuration = (18 + Math.random() * 18) + "s";
+                d.style.animationDelay = (-Math.random() * 30) + "s";
+                d.style.opacity = Math.random() * 0.5;
+                dust.appendChild(d);
+            }
         });
     </script>
 </body>
