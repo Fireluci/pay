@@ -181,7 +181,7 @@
             margin-top: 2px;
         }
 
-        /* Hero Image Banner Section Restored */
+        /* Hero Image Banner Section Optimized to Prevent Layout Shift */
         .hero-banner-section {
             width: 100%;
             max-width: 800px;
@@ -192,6 +192,8 @@
         .hero-banner-img {
             width: 100%;
             height: auto;
+            aspect-ratio: 16 / 9;
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             object-fit: contain;
@@ -559,9 +561,9 @@
             </div>
         </div>
 
-        <!-- Hero Image Banner Section Using Your Exact Link -->
+        <!-- Hero Image Banner Section Optimized to Load Instantly -->
         <section class="hero-banner-section">
-            <img src="https://lh3.googleusercontent.com/d/1tnHxh6DTs-4f1aNIjanCCzs0KD0scSB9=s0" alt="HeroFlix Premium Banner" class="hero-banner-img" loading="lazy">
+            <img src="https://lh3.googleusercontent.com/d/1tnHxh6DTs-4f1aNIjanCCzs0KD0scSB9=s0" alt="HeroFlix Premium Banner" class="hero-banner-img" width="800" height="450" fetchpriority="high">
         </section>
 
         <!-- Pricing Section (Forced 2x2 Grid Layout with ₹40, ₹80, ₹240, ₹480 plans) -->
@@ -620,7 +622,7 @@
 
         <!-- Payment Complete Section with Exact Pill Shape -->
         <section class="payment-complete-section">
-            <a href="https://t.me/HeroFlix23Bot?start=i_paid" class="btn-paid">
+            <a href="https://t.me/HeroFlix23Bot?start=premium" class="btn-paid">
                 I PAID
             </a>
         </section>
