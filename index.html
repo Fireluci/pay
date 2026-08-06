@@ -49,7 +49,7 @@
         .feature-item::before { content: '•'; color: var(--purple-accent); font-weight: bold; font-size: 1rem; }
         .feature-item:first-child::before { display: none; }
 
-        .pricing-section { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 24px; margin-top: 15px; }
+        .pricing-section { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 24px; margin-top: 25px; }
         .section-heading { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; text-align: center; }
         .pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; }
 
@@ -73,8 +73,8 @@
 
         .popular-badge {
             position: absolute;
-            top: -20px;
-            right: 14px;
+            top: -14px;
+            left: 16px;
             background: #1e1b4b;
             color: #fbbf24;
             border: 1px solid #fbbf24;
@@ -244,12 +244,12 @@
         </div>
     </div>
 
-    <footer>© HeroFlix</footer>
+ 
 
     <script>
         const UPI_ID = "karthick.slice@ybl";
         function copyUpiId() {
-            const copyBtn = document.getElementById('copyBtn');
+            const logoBtn = document.getElementById('copyBtn');
             navigator.clipboard.writeText(UPI_ID).then(() => {
                 copyBtn.innerText = "✓ Copied"; copyBtn.classList.add('copied');
                 setTimeout(() => { copyBtn.innerText = "Copy"; copyBtn.classList.remove('copied'); }, 2000);
