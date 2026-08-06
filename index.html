@@ -7,7 +7,7 @@
     <!-- Plus Jakarta Sans Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #030008;
@@ -240,13 +240,13 @@
         /* Ticket Card Styles with Larger Right-Edge Cut-Out Notch */
         .pricing-card {
             position: relative;
-            padding: 20px 14px;
+            padding: 24px 14px 20px 14px;
             display: flex;
             flex-direction: column;
             border-radius: 16px;
             transition: var(--transition);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
+            overflow: visible;
             
             mask-image: radial-gradient(circle 18px at 100% 50%, transparent 18px, black 19px);
             -webkit-mask-image: radial-gradient(circle 18px at 100% 50%, transparent 18px, black 19px);
@@ -265,7 +265,7 @@
         .card-yellow {
             background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #1e1b4b;
+            color: #ffffff;
         }
 
         .card-green {
@@ -281,18 +281,19 @@
         /* Popular Plan Badge Styling */
         .popular-badge {
             position: absolute;
-            top: -10px;
+            top: -12px;
             right: 14px;
             background: #1e1b4b;
             color: #fbbf24;
             border: 1px solid #fbbf24;
             font-size: 0.68rem;
             font-weight: 800;
-            padding: 3px 10px;
+            padding: 4px 10px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 4px 10px rgba(251, 191, 36, 0.3);
+            z-index: 5;
         }
 
         .plan-duration {
@@ -302,7 +303,7 @@
             margin-bottom: 4px;
         }
         .card-yellow .plan-duration {
-            color: #1e1b4b;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .plan-price {
@@ -313,7 +314,7 @@
             letter-spacing: -1px;
         }
         .card-yellow .plan-price {
-            color: #1e1b4b;
+            color: #ffffff;
         }
 
         .btn-pay {
@@ -439,108 +440,121 @@
             border-color: var(--success-color);
         }
 
-        /* Payment Complete Section (Matched to 2nd Green Button Style from Reference) */
-        .payment-complete-section {
+        /* ==========================================================
+           EXACT REFERENCE-MATCHED BUTTON DESIGNS
+           ========================================================== */
+
+        .action-buttons-wrapper {
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 20px;
+            max-width: 380px;
+            margin: 0 auto;
         }
 
-        .btn-paid-wrapper {
+        /* 1. EXACT "I PAID" BUTTON MATCHING GREEN 2ND STYLE FROM REFERENCE */
+        .btn-paid-ref {
             display: inline-flex;
             align-items: center;
+            justify-content: space-between;
+            background: #6cc63b; /* Exact green from reference */
+            border-radius: 50px;
             text-decoration: none;
+            width: 100%;
+            height: 64px;
             position: relative;
-            filter: drop-shadow(0 8px 20px rgba(52, 211, 153, 0.25));
+            padding-left: 36px;
+            box-shadow: 0 10px 25px rgba(108, 198, 59, 0.3);
             transition: var(--transition);
         }
 
-        .btn-paid-wrapper:hover {
+        .btn-paid-ref:hover {
             transform: translateY(-2px);
-            filter: drop-shadow(0 12px 25px rgba(52, 211, 153, 0.4));
+            box-shadow: 0 14px 30px rgba(108, 198, 59, 0.45);
         }
 
-        .btn-paid-body {
-            background: linear-gradient(135deg, #34d399 0%, #059669 100%);
-            color: #1a1a1a;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+        .btn-paid-text {
+            color: #212529; /* Exact dark grey-black text color from reference */
             font-weight: 900;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             letter-spacing: 1.5px;
-            padding: 16px 45px 16px 30px;
-            border-radius: 40px 0 0 40px;
             text-transform: uppercase;
         }
 
-        .btn-paid-circle {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+        .btn-paid-circle-node {
+            width: 74px;
+            height: 74px;
+            background: #6cc63b;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-left: -22px;
-            border: 4px solid #030008;
-            box-shadow: 0 0 0 4px #059669;
-            position: relative;
+            position: absolute;
+            right: -4px;
+            top: -5px;
+            border: 4px solid #030008; /* Matches page background to carve out cutout effect */
+            box-shadow: 0 0 0 4px #5ab32d; /* Outer green circular tracking ring */
         }
 
-        .btn-paid-circle svg {
-            width: 24px;
-            height: 24px;
-            fill: #1a1a1a;
+        .btn-paid-circle-node svg {
+            width: 26px;
+            height: 26px;
+            fill: #212529;
+            transform: translateX(1px);
         }
 
-        /* Support Section with Contact Us Banner Style */
-        .support-section {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
 
-        .btn-contact-banner {
+        /* 2. EXACT "CONTACT US" BUTTON MATCHING 1ST BLUE/DARK BANNER STYLE FROM REFERENCE */
+        .btn-contact-ref {
             display: inline-flex;
             align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, #00a2ff 0%, #0072ff 100%);
-            color: #ffffff;
-            font-weight: 800;
-            font-size: 1.15rem;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
+            width: 100%;
+            height: 64px;
+            background: linear-gradient(90deg, #1aa3ff 0%, #0088cc 100%); /* Exact rich vibrant blue gradient */
+            border-radius: 0 50px 50px 0;
             text-decoration: none;
-            padding: 14px 40px 14px 75px;
-            box-shadow: 0 10px 25px rgba(0, 114, 255, 0.35);
+            position: relative;
+            padding-left: 78px;
+            padding-right: 24px;
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.3);
             transition: var(--transition);
-            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
         }
 
-        .btn-contact-banner:hover {
+        .btn-contact-ref:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 30px rgba(0, 114, 255, 0.5);
+            box-shadow: 0 14px 30px rgba(0, 136, 204, 0.45);
         }
 
-        .contact-phone-tab {
+        .btn-contact-text {
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.15rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .btn-contact-tab {
             position: absolute;
-            left: -6px;
-            top: -6px;
-            bottom: -6px;
-            width: 55px;
-            background: #232830;
+            left: -4px;
+            top: -4px;
+            bottom: -4px;
+            width: 68px;
+            background: #1c2128; /* Exact dark slate-black color from reference fold */
+            border-radius: 50px 0 0 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 18px, 18px 0);
+            box-shadow: 4px 0 15px rgba(0,0,0,0.4);
+            /* Creates the precise angular folded ribbon top-left corner flap */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 20px, 20px 0);
         }
 
-        .contact-phone-tab svg {
-            width: 20px;
-            height: 20px;
+        .btn-contact-tab svg {
+            width: 22px;
+            height: 22px;
+            fill: #ffffff;
             transform: rotate(10deg);
         }
 
@@ -608,28 +622,28 @@
                     <div class="popular-badge">⭐ Popular</div>
                     <div class="plan-duration">1 Month</div>
                     <div class="plan-price">₹40</div>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=40&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">PAY NOW →</a>
+                    <a href="upi://pay?pa=karthick.slice@ybl&pn=HeroFlix&am=40&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <!-- Plan 2 (Red) - ₹80 -->
                 <div class="pricing-card card-red">
                     <div class="plan-duration">2 Months</div>
                     <div class="plan-price">₹80</div>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=80&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">PAY NOW →</a>
+                    <a href="upi://pay?pa=karthick.slice@ybl&pn=HeroFlix&am=80&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <!-- Plan 3 (Yellow) - ₹240 -->
                 <div class="pricing-card card-yellow">
                     <div class="plan-duration">6 Months</div>
                     <div class="plan-price">₹240</div>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=240&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">PAY NOW →</a>
+                    <a href="upi://pay?pa=karthick.slice@ybl&pn=HeroFlix&am=240&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <!-- Plan 4 (Green) - ₹480 -->
                 <div class="pricing-card card-green">
                     <div class="plan-duration">1 Year</div>
                     <div class="plan-price">₹480</div>
-                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=480&cu=INR&tn=HeroFlix%201%20Year%20Premium" class="btn-pay">PAY NOW →</a>
+                    <a href="upi://pay?pa=karthick.slice@ybl&pn=HeroFlix&am=480&cu=INR&tn=HeroFlix%201%20Year%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
             </div>
@@ -647,35 +661,34 @@
             <div class="upi-box-wrapper">
                 <span class="upi-label">UPI ID</span>
                 <div class="upi-container">
-                    <span class="upi-id" id="upiIdText">karthik.slice@ybl</span>
+                    <span class="upi-id" id="upiIdText">karthick.slice@ybl</span>
                     <button class="btn-copy" id="copyBtn" onclick="copyUpiId()">Copy</button>
                 </div>
             </div>
         </section>
 
-        <!-- Payment Complete Section -->
-        <section class="payment-complete-section">
-            <a href="https://t.me/HeroFlix23Bot?start=i_paid" class="btn-paid-wrapper">
-                <div class="btn-paid-body">I Paid</div>
-                <div class="btn-paid-circle">
+        <!-- Precision-Matched Action Buttons Section -->
+        <div class="action-buttons-wrapper">
+            <!-- Exact Match to 2nd Green Button Style from Reference -->
+            <a href="https://t.me/HeroFlix23Bot?start=i_paid" class="btn-paid-ref">
+                <span class="btn-paid-text">I Paid</span>
+                <div class="btn-paid-circle-node">
                     <svg viewBox="0 0 24 24">
                         <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM14 6h2v12h-2V6z"/>
                     </svg>
                 </div>
             </a>
-        </section>
 
-        <!-- Support Section -->
-        <section class="support-section">
-            <a href="https://t.me/HeroFeedbot" target="_blank" class="btn-contact-banner">
-                <div class="contact-phone-tab">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
+            <!-- Exact Match to 1st Blue/Dark Ribbon Banner Style from Reference -->
+            <a href="https://t.me/HeroFeedbot" target="_blank" class="btn-contact-ref">
+                <div class="btn-contact-tab">
+                    <svg viewBox="0 0 24 24">
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                     </svg>
                 </div>
-                CONTACT US
+                <span class="btn-contact-text">Contact Us</span>
             </a>
-        </section>
+        </div>
 
     </div>
 
@@ -686,7 +699,7 @@
 
     <!-- JavaScript Logic -->
     <script>
-        const UPI_ID = "karthik.slice@ybl";
+        const UPI_ID = "karthick.slice@ybl";
 
         // Copy UPI ID function with animation feedback
         function copyUpiId() {
