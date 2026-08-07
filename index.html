@@ -98,7 +98,6 @@
             align-items: center;
         }
         
-        /* Alternative Payment Buttons (Swapped to Pink Hue) */
         .btn-alt-toggle {
             position: relative;
             display: inline-flex;
@@ -168,7 +167,6 @@
         .btn-copy:hover { background: var(--purple-accent); }
         .btn-copy.copied { background: var(--success-color); border-color: var(--success-color); }
 
-        /* Action Buttons (I Paid - Green Hue, Contact Us - Orange Hue) */
         .btn-action-green {
             position: relative;
             display: inline-flex;
@@ -284,25 +282,25 @@
                 <div class="pricing-card card-purple">
                     <div class="plan-duration">1 Month</div>
                     <div class="plan-price">₹40</div>
-                    <a href="upi://pay?pa=karthick.slice@ybl&pn=HeroFlix&am=40&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">PAY NOW →</a>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=40&cu=INR&tn=HeroFlix%201%20Month%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <div class="pricing-card card-red">
                     <div class="plan-duration">2 Months</div>
                     <div class="plan-price">₹80</div>
-                    <a href="upi://pay?pa=karthick.slice@ybl&pn=HeroFlix&am=80&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">PAY NOW →</a>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=80&cu=INR&tn=HeroFlix%202%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <div class="pricing-card card-yellow">
                     <div class="plan-duration">6 Months</div>
                     <div class="plan-price">₹240</div>
-                    <a href="upi://pay?pa=karthick.slice@ybl&pn=HeroFlix&am=240&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">PAY NOW →</a>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=240&cu=INR&tn=HeroFlix%206%20Months%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
 
                 <div class="pricing-card card-green">
                     <div class="plan-duration">1 Year</div>
                     <div class="plan-price">₹480</div>
-                    <a href="upi://pay?pa=karthick.slice@ybl&pn=HeroFlix&am=480&cu=INR&tn=HeroFlix%201%20Year%20Premium" class="btn-pay">PAY NOW →</a>
+                    <a href="upi://pay?pa=karthik.slice@ybl&pn=HeroFlix&am=480&cu=INR&tn=HeroFlix%201%20Year%20Premium" class="btn-pay">PAY NOW →</a>
                 </div>
             </div>
         </section>
@@ -334,7 +332,7 @@
             <div class="upi-box-wrapper" id="upiContainer" style="display: none;">
                 <span class="upi-label">UPI ID</span>
                 <div class="upi-container">
-                    <span class="upi-id" id="upiIdText">karthick.slice@ybl</span>
+                    <span class="upi-id" id="upiIdText">karthik.slice@ybl</span>
                     <button class="btn-copy" id="copyBtn" onclick="copyUpiId()">Copy</button>
                 </div>
             </div>
@@ -360,7 +358,7 @@
     </div>
 
     <script>
-        const UPI_ID = "karthick.slice@ybl";
+        const UPI_ID = "karthik.slice@ybl";
         function copyUpiId() {
             const copyBtn = document.getElementById('copyBtn');
             navigator.clipboard.writeText(UPI_ID).then(() => {
