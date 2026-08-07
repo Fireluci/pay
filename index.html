@@ -180,61 +180,94 @@
         .btn-copy:hover { background: var(--purple-accent); }
         .btn-copy.copied { background: var(--success-color); border-color: var(--success-color); }
 
+        /* Action buttons wrapper staying side-by-side on both PC and mobile */
         .action-buttons-wrapper { 
             width: 100%; 
             display: flex; 
             flex-direction: row; 
             align-items: center; 
             justify-content: center;
-            gap: 12px; 
-            max-width: 480px; 
+            gap: 10px; 
+            max-width: 500px; 
             margin: 0 auto; 
         }
-        .btn-paid-ref, .button-container { 
-            flex: 1; 
-            width: 100%; 
-        }
 
-        .btn-paid-ref {
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            background: #6cc63b;
-            border-radius: 35px; 
-            text-decoration: none; 
-            height: 48px; 
-            position: relative; 
-            padding-left: 20px;
-            box-shadow: 0 6px 18px rgba(108, 198, 59, 0.3); 
+        /* Freepik styled Action Buttons */
+        .btn-action-pink {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            height: 52px;
+            background: #f472b6;
+            border-radius: 8px;
+            text-decoration: none;
+            padding-left: 16px;
+            padding-right: 48px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(244, 114, 182, 0.3);
             transition: var(--transition);
         }
-        .btn-paid-ref:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(108, 198, 59, 0.45); }
-        .btn-paid-text { color: #212529; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
-        .btn-paid-circle-node {
-            width: 54px; height: 54px; background: #6cc63b; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            position: absolute; right: -3px; top: -3px; border: 3px solid #030008; box-shadow: 0 0 0 3px #5ab32d;
-        }
-        .btn-paid-circle-node svg { width: 20px; height: 20px; fill: #212529; transform: translateX(1px); }
+        .btn-action-pink:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(244, 114, 182, 0.45); }
 
-        .button-container { position: relative; display: inline-block; cursor: pointer; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25)); transition: transform 0.2s ease; }
-        .button-container:hover { transform: translateY(-2px); }
-        .button-container::before { content: ''; position: absolute; inset: 0; background: #0072bc; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); transform: translateY(2px); z-index: 0; }
-        
-        .custom-contact-btn {
-            position: relative; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 46px;
-            padding-left: 45px; padding-right: 30px; background: linear-gradient(90deg, #1b93e1 0%, #00c6ff 100%);
-            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%);
-            font-weight: 800; font-size: 0.9rem; color: #ffffff; letter-spacing: 0.8px; text-decoration: none; z-index: 1;
+        .btn-action-orange {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            height: 52px;
+            background: #fb923c;
+            border-radius: 8px;
+            text-decoration: none;
+            padding-left: 16px;
+            padding-right: 48px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(251, 146, 60, 0.3);
+            transition: var(--transition);
         }
-        .custom-contact-btn::after { content: ''; position: absolute; top: 0; left: 35px; right: 16px; height: 2px; background: rgba(255, 255, 255, 0.4); z-index: 2; }
-        
-        .phone-badge {
-            position: absolute; left: 0; top: 0; bottom: 0; width: 35px; background: #1a1e24;
-            display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 0, 100% 82% , 50% 100%, 0 82%);
-            box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.5); z-index: 3;
+        .btn-action-orange:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(251, 146, 60, 0.45); }
+
+        .btn-action-text {
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
-        .phone-badge svg { width: 16px; height: 16px; fill: #ffffff; margin-bottom: 3px; }
-        .btn-text { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); z-index: 1; }
+
+        .btn-action-left-bar {
+            position: absolute;
+            left: 8px;
+            top: 12px;
+            bottom: 12px;
+            width: 3px;
+            background: #ffffff;
+            border-radius: 2px;
+        }
+
+        .btn-action-icon-box {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            bottom: 3px;
+            width: 42px;
+            background: #ffffff;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.06);
+        }
+        .btn-action-icon-box svg {
+            width: 20px;
+            height: 20px;
+            fill: #1f2937;
+        }
 
         footer { text-align: center; padding: 16px 0; color: var(--text-muted); font-size: 0.8rem; font-weight: 500; border-top: 1px solid rgba(255, 255, 255, 0.04); width: 100%; max-width: 900px; }
 
@@ -242,8 +275,7 @@
             .hero-title { font-size: 2.5rem; }
             .container { gap: 30px; padding: 20px 10px 40px; }
             .plan-price { font-size: 1.7rem; }
-            .action-buttons-wrapper { flex-direction: column; }
-            .btn-paid-ref, .button-container { width: 100%; flex: none; }
+            .btn-action-text { font-size: 0.7rem; letter-spacing: 0.3px; }
         }
     </style>
 </head>
@@ -330,21 +362,21 @@
         </section>
 
         <div class="action-buttons-wrapper">
-            <a href="https://t.me/HeroFlix23Bot?start=i_paid" class="btn-paid-ref">
-                <span class="btn-paid-text">I Paid</span>
-                <div class="btn-paid-circle-node">
-                    <svg viewBox="0 0 24 24"><path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM14 6h2v12h-2V6z"/></svg>
+            <a href="https://t.me/HeroFlix23Bot?start=i_paid" class="btn-action-pink">
+                <div class="btn-action-left-bar"></div>
+                <span class="btn-action-text">I Paid</span>
+                <div class="btn-action-icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.97 1.91 2.58 1.91 1.48 0 2.3-.7 2.3-1.69 0-1.03-.83-1.52-2.73-1.98-2.22-.54-3.79-1.42-3.79-3.45 0-1.71 1.34-2.92 3.08-3.32V4h2.67v1.93c1.47.31 2.76 1.25 3.04 2.97h-1.92c-.22-.92-.94-1.55-2.12-1.55-1.2 0-2.02.63-2.02 1.51 0 .93.74 1.39 2.51 1.83 2.45.61 4.01 1.54 4.01 3.65 0 1.84-1.38 3.02-3.22 3.44z"/></svg>
                 </div>
             </a>
 
-            <div class="button-container">
-                <a href="https://t.me/HeroFeedbot" target="_blank" class="custom-contact-btn">
-                    <div class="phone-badge">
-                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    </div>
-                    <span class="btn-text">CONTACT US</span>
-                </a>
-            </div>
+            <a href="https://t.me/HeroFeedbot" target="_blank" class="btn-action-orange">
+                <div class="btn-action-left-bar"></div>
+                <span class="btn-action-text">Contact Us</span>
+                <div class="btn-action-icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </div>
+            </a>
         </div>
     </div>
 
