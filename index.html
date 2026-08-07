@@ -72,9 +72,9 @@
         .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); }
 
         .popular-badge {
-            position: absolute;
-            top: -12px;
-            left: 16px;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 8px;
             background: #1e1b4b;
             color: #fbbf24;
             border: 1px solid #fbbf24;
@@ -85,15 +85,15 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 4px 10px rgba(251, 191, 36, 0.3);
-            z-index: 20;
             white-space: nowrap;
+            width: fit-content;
         }
 
         .plan-duration { font-size: 0.95rem; font-weight: 800; color: rgba(255, 255, 255, 0.9); margin-bottom: 4px; }
-        .plan-price { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 16px; letter-spacing: -1px; }
+        .plan-price { font-size: 2rem; font-weight: 800; color: white; margin-bottom: 16px; letter-spacing: -1px; line-height: 1.1; }
         
         .btn-pay {
-            width: 100%; height: 38px; background: #000000; color: white; border: none; padding: 0 8px; border-radius: 10px;
+            width: 100%; height: 38px; min-height: 38px; max-height: 38px; background: #000000; color: white; border: none; padding: 0 8px; border-radius: 10px;
             font-size: 0.82rem; font-weight: 800; cursor: pointer; transition: var(--transition);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); text-align: center; text-decoration: none;
             display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: auto;
@@ -114,26 +114,61 @@
             justify-content: center;
         }
         
-        /* Alternative payment buttons styled to match the main black pay button theme/depth */
         .btn-alt-toggle {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
             flex: 1;
-            height: 44px;
-            background: #000000;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 0 12px;
-            border-radius: 10px;
-            font-weight: 800;
-            font-size: 0.82rem;
+            height: 52px;
+            background: #b5e833;
+            border-radius: 8px;
+            text-decoration: none;
+            padding-left: 20px;
+            padding-right: 50px;
+            border: none;
             cursor: pointer;
+            box-shadow: 0 4px 14px rgba(181, 232, 51, 0.25);
             transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .btn-alt-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(181, 232, 51, 0.4);
+        }
+        .btn-alt-text {
+            color: #1f2937;
+            font-weight: 900;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .btn-alt-left-bar {
+            position: absolute;
+            left: 8px;
+            top: 12px;
+            bottom: 12px;
+            width: 3px;
+            background: #ffffff;
+            border-radius: 2px;
+        }
+        .btn-alt-icon-box {
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            bottom: 3px;
+            width: 44px;
+            background: #ffffff;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            letter-spacing: 0.3px;
+            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.06);
         }
-        .btn-alt-toggle:hover { background: #1f1f1f; transform: translateY(-2px); }
+        .btn-alt-icon-box svg {
+            width: 20px;
+            height: 20px;
+            fill: #1f2937;
+        }
 
         .qr-wrapper { background: white; padding: 16px; border-radius: 20px; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.4); width: 100%; max-width: 340px; }
         .qr-wrapper img { width: 100%; height: auto; display: block; border-radius: 10px; object-fit: contain; }
@@ -145,7 +180,6 @@
         .btn-copy:hover { background: var(--purple-accent); }
         .btn-copy.copied { background: var(--success-color); border-color: var(--success-color); }
 
-        /* Side-by-side smaller action buttons wrapper */
         .action-buttons-wrapper { 
             width: 100%; 
             display: flex; 
@@ -156,8 +190,11 @@
             max-width: 480px; 
             margin: 0 auto; 
         }
+        .btn-paid-ref, .button-container { 
+            flex: 1; 
+            width: 100%; 
+        }
 
-        /* Smaller "I Paid" button */
         .btn-paid-ref {
             display: inline-flex; 
             align-items: center; 
@@ -165,7 +202,6 @@
             background: #6cc63b;
             border-radius: 35px; 
             text-decoration: none; 
-            flex: 1; 
             height: 48px; 
             position: relative; 
             padding-left: 20px;
@@ -180,8 +216,7 @@
         }
         .btn-paid-circle-node svg { width: 20px; height: 20px; fill: #212529; transform: translateX(1px); }
 
-        /* Smaller Custom Contact Us Button */
-        .button-container { position: relative; display: inline-block; flex: 1; cursor: pointer; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25)); transition: transform 0.2s ease; }
+        .button-container { position: relative; display: inline-block; cursor: pointer; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25)); transition: transform 0.2s ease; }
         .button-container:hover { transform: translateY(-2px); }
         .button-container::before { content: ''; position: absolute; inset: 0; background: #0072bc; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); transform: translateY(2px); z-index: 0; }
         
@@ -266,10 +301,18 @@
             
             <div class="alt-toggle-group">
                 <button class="btn-alt-toggle" onclick="toggleAltPayment('qr')">
-                    <span id="qrBtnText">Show QR Code</span>
+                    <div class="btn-alt-left-bar"></div>
+                    <span class="btn-alt-text" id="qrBtnText">Show QR</span>
+                    <div class="btn-alt-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M3 3h8v8H3V3m2 2v4h4V5H5m8-2h8v8h-8V3m2 2v4h4V5h-4M3 13h8v8H3v-8m2 2v4h4v-4H5m13-2h3v3h-3v-3m1 1h1v1h-1v-1m-4 3h2v2h-2v-2m3 0h2v2h-2v-2m-3 3h2v2h-2v-2m3 0h2v2h-2v-2m-3 3h2v2h-2v-2m3 0h2v2h-2v-2m-6-6h2v2h-2v-2m3 0h2v2h-2v-2Z"/></svg>
+                    </div>
                 </button>
                 <button class="btn-alt-toggle" onclick="toggleAltPayment('upi')">
-                    <span id="upiBtnText">Show UPI ID</span>
+                    <div class="btn-alt-left-bar"></div>
+                    <span class="btn-alt-text" id="upiBtnText">Show UPI ID</span>
+                    <div class="btn-alt-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
                 </button>
             </div>
 
@@ -305,6 +348,8 @@
         </div>
     </div>
 
+    <footer>© HeroFlix</footer>
+
     <script>
         const UPI_ID = "karthick.slice@ybl";
         function copyUpiId() {
@@ -326,7 +371,7 @@
                 qrContainer.style.display = isCurrentlyHidden ? 'inline-block' : 'none';
                 upiContainer.style.display = 'none';
                 
-                qrBtnText.innerText = isCurrentlyHidden ? 'Hide QR Code' : 'Show QR Code';
+                qrBtnText.innerText = isCurrentlyHidden ? 'Hide QR' : 'Show QR';
                 upiBtnText.innerText = 'Show UPI ID';
             } else if (type === 'upi') {
                 const isCurrentlyHidden = upiContainer.style.display === 'none';
@@ -334,7 +379,7 @@
                 qrContainer.style.display = 'none';
                 
                 upiBtnText.innerText = isCurrentlyHidden ? 'Hide UPI ID' : 'Show UPI ID';
-                qrBtnText.innerText = 'Show QR Code';
+                qrBtnText.innerText = 'Show QR';
             }
         }
 
