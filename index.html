@@ -74,7 +74,7 @@
         .popular-badge {
             position: absolute;
             top: -12px;
-            right: -16px;
+            left: 16px;
             background: #1e1b4b;
             color: #fbbf24;
             border: 1px solid #fbbf24;
@@ -105,28 +105,35 @@
             border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 20px; text-align: center;
             display: flex; flex-direction: column; align-items: center; gap: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
-        .alt-payment-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.4; }
         
         .alt-toggle-group {
             display: flex;
             gap: 12px;
             width: 100%;
-            max-width: 340px;
+            max-width: 420px;
             justify-content: center;
         }
+        
+        /* Alternative payment buttons styled to match the main black pay button theme/depth */
         .btn-alt-toggle {
             flex: 1;
-            background: rgba(139, 92, 246, 0.15);
-            border: 1px solid var(--purple-accent);
+            height: 44px;
+            background: #000000;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: white;
-            padding: 10px 14px;
+            padding: 0 12px;
             border-radius: 10px;
-            font-weight: 700;
-            font-size: 0.85rem;
+            font-weight: 800;
+            font-size: 0.82rem;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 0.3px;
         }
-        .btn-alt-toggle:hover { background: var(--purple-accent); }
+        .btn-alt-toggle:hover { background: #1f1f1f; transform: translateY(-2px); }
 
         .qr-wrapper { background: white; padding: 16px; border-radius: 20px; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.4); width: 100%; max-width: 340px; }
         .qr-wrapper img { width: 100%; height: auto; display: block; border-radius: 10px; object-fit: contain; }
@@ -138,40 +145,60 @@
         .btn-copy:hover { background: var(--purple-accent); }
         .btn-copy.copied { background: var(--success-color); border-color: var(--success-color); }
 
-        .action-buttons-wrapper { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 380px; margin: 0 auto; }
+        /* Side-by-side smaller action buttons wrapper */
+        .action-buttons-wrapper { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: row; 
+            align-items: center; 
+            justify-content: center;
+            gap: 12px; 
+            max-width: 480px; 
+            margin: 0 auto; 
+        }
 
+        /* Smaller "I Paid" button */
         .btn-paid-ref {
-            display: inline-flex; align-items: center; justify-content: space-between; background: #6cc63b;
-            border-radius: 50px; text-decoration: none; width: 100%; height: 64px; position: relative; padding-left: 36px;
-            box-shadow: 0 10px 25px rgba(108, 198, 59, 0.3); transition: var(--transition);
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            background: #6cc63b;
+            border-radius: 35px; 
+            text-decoration: none; 
+            flex: 1; 
+            height: 48px; 
+            position: relative; 
+            padding-left: 20px;
+            box-shadow: 0 6px 18px rgba(108, 198, 59, 0.3); 
+            transition: var(--transition);
         }
-        .btn-paid-ref:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(108, 198, 59, 0.45); }
-        .btn-paid-text { color: #212529; font-weight: 900; font-size: 1.15rem; letter-spacing: 1.5px; text-transform: uppercase; }
+        .btn-paid-ref:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(108, 198, 59, 0.45); }
+        .btn-paid-text { color: #212529; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
         .btn-paid-circle-node {
-            width: 74px; height: 74px; background: #6cc63b; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            position: absolute; right: -4px; top: -5px; border: 4px solid #030008; box-shadow: 0 0 0 4px #5ab32d;
+            width: 54px; height: 54px; background: #6cc63b; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            position: absolute; right: -3px; top: -3px; border: 3px solid #030008; box-shadow: 0 0 0 3px #5ab32d;
         }
-        .btn-paid-circle-node svg { width: 26px; height: 26px; fill: #212529; transform: translateX(1px); }
+        .btn-paid-circle-node svg { width: 20px; height: 20px; fill: #212529; transform: translateX(1px); }
 
-        /* Custom Contact Us Button CSS */
-        .button-container { position: relative; display: inline-block; width: 100%; cursor: pointer; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25)); transition: transform 0.2s ease; }
+        /* Smaller Custom Contact Us Button */
+        .button-container { position: relative; display: inline-block; flex: 1; cursor: pointer; filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25)); transition: transform 0.2s ease; }
         .button-container:hover { transform: translateY(-2px); }
-        .button-container::before { content: ''; position: absolute; inset: 0; background: #0072bc; clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%); transform: translateY(3px); z-index: 0; }
+        .button-container::before { content: ''; position: absolute; inset: 0; background: #0072bc; clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); transform: translateY(2px); z-index: 0; }
         
         .custom-contact-btn {
-            position: relative; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 56px;
-            padding-left: 70px; padding-right: 50px; background: linear-gradient(90deg, #1b93e1 0%, #00c6ff 100%);
-            clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 50%, calc(100% - 22px) 100%, 0 100%);
-            font-weight: 800; font-size: 18px; color: #ffffff; letter-spacing: 1px; text-decoration: none; z-index: 1;
+            position: relative; display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 46px;
+            padding-left: 45px; padding-right: 30px; background: linear-gradient(90deg, #1b93e1 0%, #00c6ff 100%);
+            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%);
+            font-weight: 800; font-size: 0.9rem; color: #ffffff; letter-spacing: 0.8px; text-decoration: none; z-index: 1;
         }
-        .custom-contact-btn::after { content: ''; position: absolute; top: 0; left: 48px; right: 22px; height: 2px; background: rgba(255, 255, 255, 0.4); z-index: 2; }
+        .custom-contact-btn::after { content: ''; position: absolute; top: 0; left: 35px; right: 16px; height: 2px; background: rgba(255, 255, 255, 0.4); z-index: 2; }
         
         .phone-badge {
-            position: absolute; left: 0; top: 0; bottom: 0; width: 48px; background: #1a1e24;
+            position: absolute; left: 0; top: 0; bottom: 0; width: 35px; background: #1a1e24;
             display: flex; align-items: center; justify-content: center; clip-path: polygon(0 0, 100% 0, 100% 82% , 50% 100%, 0 82%);
             box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.5); z-index: 3;
         }
-        .phone-badge svg { width: 20px; height: 20px; fill: #ffffff; margin-bottom: 4px; }
+        .phone-badge svg { width: 16px; height: 16px; fill: #ffffff; margin-bottom: 3px; }
         .btn-text { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); z-index: 1; }
 
         footer { text-align: center; padding: 16px 0; color: var(--text-muted); font-size: 0.8rem; font-weight: 500; border-top: 1px solid rgba(255, 255, 255, 0.04); width: 100%; max-width: 900px; }
@@ -180,6 +207,8 @@
             .hero-title { font-size: 2.5rem; }
             .container { gap: 30px; padding: 20px 10px 40px; }
             .plan-price { font-size: 1.7rem; }
+            .action-buttons-wrapper { flex-direction: column; }
+            .btn-paid-ref, .button-container { width: 100%; flex: none; }
         }
     </style>
 </head>
@@ -233,8 +262,7 @@
         </section>
 
         <section class="alt-payment-section">
-            <h2 class="section-heading" style="font-size: 1.4rem;">Alternative Payment</h2>
-            <p class="alt-payment-desc">If your UPI app doesn't open, tap an option below to view details.</p>
+            <h2 class="section-heading" style="font-size: 1.4rem;">Alternative Payment Methods</h2>
             
             <div class="alt-toggle-group">
                 <button class="btn-alt-toggle" onclick="toggleAltPayment('qr')">
